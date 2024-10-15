@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIP Activation</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('background.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+        }
+
+        .hero {
+            background-image: url('header-background.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            text-align: center;
+            padding: 20px 10px;
+        }
+
+        .logo-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .new-logo {
+            width: 280px;
+            height: auto;
+        }
+
+        .small-logo {
+            width: 180px;
+            height: auto;
+        }
+
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-container {
+            max-width: 400px;
+            margin: 30px auto;
+            padding: 30px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: white;
+        }
+
+        input[type="text"], input[type="email"], input[type="tel"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1rem;
+            color: black;
+        }
+
+        input[type="checkbox"] {
+            margin-right: 5px;
+        }
+
+        .terms {
+            margin-top: 15px;
+            font-size: 12px;
+            line-height: 1.5;
+        }
+
+        .terms p {
+            margin-bottom: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            background-color: rgb(227, 31, 42);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        button:hover {
+            background-color: rgb(200, 28, 38);
+        }
+
+        /* Dark Themed Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background-color: #1e1e1e;
+            color: white;
+            padding: 30px;
+            text-align: center;
+            border-radius: 12px;
+            width: 350px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content h2 {
+            color: #4caf50;
+        }
+
+        .modal-content p {
+            margin-top: 10px;
+        }
+
+        .modal-content a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4caf50;
+            color: white;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .modal-content a:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <section class="hero">
+        <div class="logo-container">
+            <img src="new-logo.png" alt="New Logo" class="new-logo">
+            <img src="logo.png" alt="Legacy Code AI Logo" class="small-logo">
+        </div>
+    </section>
+
+    <div class="form-container glass-effect">
+        <form id="activationForm" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="7454598a-32fb-480b-9746-555fff9b27e5">
+
+            <label for="fullName">Full Name:</label>
+            <input type="text" id="fullName" name="fullName" required>
+
+            <label for="bidderNumber">Bidder's Number:</label>
+            <input type="text" id="bidderNumber" name="bidderNumber" pattern="\d{3,6}" required>
+
+            <label for="contactNumber">Contact Number:</label>
+            <input type="tel" id="contactNumber" name="contactNumber" required>
+
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email" required>
+
+            <div class="terms">
+                <p>• A refundable deposit of 15% is payable upon signing of the Sales Agreement.</p>
+                <p>• A 10% bidder’s premium and VAT thereon is payable on signature of the agreement (included in the deposit above).</p>
+                <p>• If you are bidding on behalf of another person or a company or a trust – please provide proof of your authorization to do so when registering.</p>
+                <p>• If you succeed in the bidding and sign the Sales Agreement in a representative capacity, you waive the legal exceptions of excussion and division and acknowledge that you shall be deemed to have bound yourself as surety for and co-principal debtor in solidum with the third party whom you represent for the due and punctual payment and performance of all obligations of that third party.</p>
+                <p>• Please be sure to read the conditions of sale thoroughly before bidding.</p>
+                <p>• In signing this document you are accepting the Terms and Conditions laid out in the Sales Agreement, the rules of auction and any other specific terms conveyed by the auctioneer.</p>
+            </div>
+
+            <div class="form-group">
+                <input type="checkbox" id="acceptTerms" name="acceptTerms" required>
+                <label for="acceptTerms">I accept the Terms and Conditions</label>
+            </div>
+
+            <button type="submit">Activate</button>
+        </form>
+    </div>
+
+    <div class="modal" id="successModal">
+        <div class="modal-content">
+            <h2>Form submitted successfully!</h2>
+            <p>Thank you! Your form has been successfully submitted.</p>
+            <a href="#" id="goBack">Go back</a>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('activationForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const form = event.target;
+
+            fetch(form.action, {
+                method: form.method,
+                body: new FormData(form)
+            })
+            .then(response => {
+                if (response.ok) {
+                    document.getElementById('successModal').style.display = 'flex';
+                } else {
+                    alert('Form submission failed. Please try again.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred. Please try again.');
+            });
+        });
+
+        document.getElementById('goBack').addEventListener('click', function(event) {
+            event.preventDefault();
+            document.getElementById('successModal').style.display = 'none';
+        });
+    </script>
+
+</body>
+</html>
